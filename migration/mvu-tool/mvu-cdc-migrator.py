@@ -159,6 +159,7 @@ def get_resume_token(appConfig):
     
     allDone = False
     if not appConfig["sourceDb"]:
+        sourceConnection.admin.command("ping")
         stream = sourceConnection.watch()
         logIt(-1,'getting current change stream resume token')
     else:
