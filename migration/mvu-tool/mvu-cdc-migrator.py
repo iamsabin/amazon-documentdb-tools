@@ -167,6 +167,7 @@ def get_resume_token(appConfig):
         stream=sourceDatabase.watch()
         logIt(-1,'getting current change stream resume token for ' + appConfig["sourceDb"] + " database")
 
+    logIt(-1,'waiting for change stream resume token' + stream.__str__())
     while not allDone:
         for change in stream:
             resumeToken = change['_id']['_data']
